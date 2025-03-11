@@ -22,6 +22,7 @@ jobs:
         run: |
           LATEST_VERSION=$(curl -s https://api.github.com/repos/alacritty/alacritty/releases/latest | grep tag_name | cut -d '"' -f 4)
           echo "LATEST_VERSION=$LATEST_VERSION" >> $GITHUB_ENV
+          echo "version=$LATEST_VERSION" >> $GITHUB_OUTPUT
           
           if git ls-remote --tags origin | grep -q $LATEST_VERSION; then
             echo "EXISTS=true" >> $GITHUB_OUTPUT
