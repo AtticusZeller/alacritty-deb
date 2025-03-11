@@ -3,7 +3,7 @@
 ## Install
 
 ```bash
-sudo apt install alacritty_<x.xx.x>_amd64.deb 
+sudo apt install alacritty_<x.xx.x>_amd64.deb
 ```
 
 ## Uninstall

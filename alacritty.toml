@@ -25,7 +25,7 @@ bindings = [
     { key = "V", mods = "Control|Shift", action = "Paste" },
     { key = "C", mods = "Control|Shift", action = "Copy" },
     { key = "Insert", mods = "Shift", action = "PasteSelection" },
-    # font 
+    # font
     { key = "Key0", mods = "Control", action = "ResetFontSize" },
     { key = "Equals", mods = "Control", action = "IncreaseFontSize" },
     { key = "Minus", mods = "Control", action = "DecreaseFontSize" },
@@ -33,7 +33,7 @@ bindings = [
     { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
     { key = "Q", mods = "Control|Shift", action = "Quit" },
     { key = "M", mods = "Control|Shift", action = "Minimize" },
-    # search 
+    # search
     { key = "F", mods = "Control|Shift", action = "SearchForward" },
     { key = "B", mods = "Control|Shift", action = "SearchBackward" },
 ]
