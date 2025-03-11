@@ -1,13 +1,13 @@
 #!/bin/bash
 set -e
 
-# fetch latest version
-LATEST_VERSION=$(curl -s https://api.github.com/repos/alacritty/alacritty/releases/latest | grep tag_name | cut -d '"' -f 4)
+# Get version from argument
+VERSION=$1
 
 # Clone repository
 git clone https://github.com/alacritty/alacritty.git
 cd alacritty
-git checkout $LATEST_VERSION
+git checkout $VERSION
 
 # Install dependencies
 # Ref: https://github.com/alacritty/alacritty/blob/master/INSTALL.md#debianubuntu
@@ -23,7 +23,3 @@ rustup update stable
 # Build
 # Ref: https://github.com/alacritty/alacritty/blob/master/INSTALL.md#building
 cargo build --release
-
-# output
-cd ..
-echo "$LATEST_VERSION" > version.txt

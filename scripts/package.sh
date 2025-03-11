@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-VERSION=$(cat version.txt)
+VERSION=$1
 ARCH=$(dpkg --print-architecture)
 
 # mkdir package directory
