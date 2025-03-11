@@ -21,6 +21,7 @@ rustup override set stable
 rustup update stable
 
 # Build
+# Ref: https://github.com/alacritty/alacritty/blob/master/INSTALL.md#building
 cargo build --release
 
 # output
