@@ -48,8 +48,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           files: alacritty_*.deb
-          tag_name: release-${{ env.ALACRITTY_VERSION }}
-          name: Alacritty ${{ env.ALACRITTY_VERSION }}
+          tag_name: ${{ env.ALACRITTY_VERSION }}
+          name: ${{ env.ALACRITTY_VERSION }}
           body: |
             Alacritty DEB package for version ${{ env.ALACRITTY_VERSION }}
           draft: false
