@@ -3,16 +3,16 @@
 TERM = "xterm-256color"
 
 [window]
-startup_mode = "Windowed"
-dynamic_title = true
-dimensions = { columns = 80, lines = 20 }
+startup_mode    = "Windowed"
+dynamic_title   = true
+dimensions      = { columns = 80, lines = 20 }
 dynamic_padding = true
 [font]
-normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
-bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
-italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
-bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
-size = 12.0
+normal              = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+bold                = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+italic              = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+bold_italic         = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
+size                = 12.0
 builtin_box_drawing = false
 # rendering emoji https://github.com/alacritty/alacritty/issues/4692#issuecomment-855363642
 
@@ -45,30 +45,32 @@ hide_when_typing = true
 save_to_clipboard = true
 
 [cursor]
-style = { shape = "Beam", blinking = "On" }
+style            = { shape = "Beam", blinking = "On" }
 unfocused_hollow = true
 
-# Powerlevel10k
+# Ubuntu
+# Ref: https://gist.github.com/moxwel/26aa7555d673f9e345c8930fc5ff7a2b
 [colors.primary]
-background = "#181818"
-foreground = "#d8d8d8"
+background = "#300A24"
+foreground = "#EEEEEC"
 
+# Powerlevel10k
 [colors.normal]
-black = "#171421"
-red = "#C01C28"
-green = "#26A269"
-yellow = "#A2734C"
-blue = "#12488B"
+black   = "#171421"
+red     = "#C01C28"
+green   = "#26A269"
+yellow  = "#A2734C"
+blue    = "#12488B"
 magenta = "#A347BA"
-cyan = "#2AA1B3"
-white = "#D0CFCC"
+cyan    = "#2AA1B3"
+white   = "#D0CFCC"
 
 [colors.bright]
-black = "#5E5C64"
-red = "#F66151"
-green = "#33DA7A"
-yellow = "#E9AD0C"
-blue = "#2A7BDE"
+black   = "#5E5C64"
+red     = "#F66151"
+green   = "#33DA7A"
+yellow  = "#E9AD0C"
+blue    = "#2A7BDE"
 magenta = "#C061CB"
-cyan = "#33C7DE"
-white = "#FFFFFF"
+cyan    = "#33C7DE"
+white   = "#FFFFFF"
