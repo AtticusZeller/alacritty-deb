@@ -23,7 +23,7 @@ Version: ${VERSION#v}
 Section: utils
 Priority: optional
 Architecture: $ARCH
-Maintainer: Your Name <your.email@example.com>
+Maintainer: Atticus hello@atticux.me
 Depends: libc6
 Description: GPU-accelerated terminal emulator
  Alacritty is a modern terminal emulator that
