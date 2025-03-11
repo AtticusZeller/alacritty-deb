@@ -2,8 +2,8 @@ name: Build and Package Alacritty
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # 每天运行
-  workflow_dispatch:      # 允许手动触发
+    - cron: '0 0 * * *'  
+  workflow_dispatch:      
 
 jobs:
   build:
@@ -21,18 +21,33 @@ jobs:
           chmod +x scripts/build.sh
           sudo ./scripts/build.sh
 
+      - name: Get Alacritty version
+        id: get_version
+        run: |
+          VERSION=$(cat version.txt)
+          echo "ALACRITTY_VERSION=$VERSION" >> $GITHUB_ENV
+          echo "::set-output name=version::$VERSION"
+
       - name: Package Alacritty
         run: |
           chmod +x scripts/package.sh
           sudo ./scripts/package.sh
 
+      - name: Create Git tag
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git tag -f "release-${{ env.ALACRITTY_VERSION }}"
+
       - name: Create Release
-        id: create_release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           files: alacritty_*.deb
-          tag_name: ${{ env.ALACRITTY_VERSION }}
+          tag_name: release-${{ env.ALACRITTY_VERSION }}
+          name: Alacritty ${{ env.ALACRITTY_VERSION }}
+          body: |
+            Alacritty DEB package for version ${{ env.ALACRITTY_VERSION }}
           draft: false
           prerelease: false
