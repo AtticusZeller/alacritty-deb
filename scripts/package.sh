@@ -4,20 +4,19 @@ set -e
 VERSION=$(cat version.txt)
 ARCH=$(dpkg --print-architecture)
 
-# 创建打包目录结构
+# mkdir package directory
 PACKAGE_DIR="alacritty-package"
 mkdir -p "$PACKAGE_DIR/DEBIAN"
 mkdir -p "$PACKAGE_DIR/usr/bin"
 mkdir -p "$PACKAGE_DIR/usr/share/applications"
 mkdir -p "$PACKAGE_DIR/usr/share/pixmaps"
 
-# 复制二进制文件
+# copy binary
 cp alacritty/target/release/alacritty "$PACKAGE_DIR/usr/bin/"
-
-# 复制图标
+# copy desktop icon
 cp alacritty/extra/logo/alacritty-term.svg "$PACKAGE_DIR/usr/share/pixmaps/Alacritty.svg"
 
-# 生成 control 文件
+# control
 cat > "$PACKAGE_DIR/DEBIAN/control" << EOF
 Package: alacritty
 Version: ${VERSION#v}
@@ -31,23 +30,32 @@ Description: GPU-accelerated terminal emulator
  utilizes GPU acceleration for improved performance.
 EOF
 
-# 生成桌面文件
+# desktop
+# Ref: https://github.com/alacritty/alacritty/blob/master/extra/linux/Alacritty.desktop
 cat > "$PACKAGE_DIR/usr/share/applications/alacritty.desktop" << EOF
 [Desktop Entry]
 Type=Application
-Name=Alacritty
-Comment=A GPU-accelerated terminal emulator
+TryExec=alacritty
 Exec=alacritty
 Icon=Alacritty
 Terminal=false
 Categories=System;TerminalEmulator;
+
+Name=Alacritty
+GenericName=Terminal
+Comment=A fast, cross-platform, OpenGL terminal emulator
+StartupNotify=true
+StartupWMClass=Alacritty
+Actions=New;
+
+[Desktop Action New]
+Name=New Terminal
+Exec=alacritty
 EOF
 
-# 设置权限
 chmod 755 "$PACKAGE_DIR/usr/bin/alacritty"
 chmod -R 755 "$PACKAGE_DIR/DEBIAN"
 find "$PACKAGE_DIR" -type d -exec chmod 755 {} \;
 
-# 构建 deb 包
 dpkg-deb --build "$PACKAGE_DIR"
 mv "${PACKAGE_DIR}.deb" "alacritty_${VERSION#v}_${ARCH}.deb"
