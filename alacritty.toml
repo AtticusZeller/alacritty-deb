@@ -30,7 +30,8 @@ bindings = [
     { key = "Equals", mods = "Control", action = "IncreaseFontSize" },
     { key = "Minus", mods = "Control", action = "DecreaseFontSize" },
     # window
-    { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
+    { key = "N", mods = "Control|Shift", action = "SpawnNewInstance" },
+    { key = "T", mods = "Control|Shift", action = "CreateNewWindow" },
     { key = "Q", mods = "Control|Shift", action = "Quit" },
     { key = "M", mods = "Control|Shift", action = "Minimize" },
     # search
