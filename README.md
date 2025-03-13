@@ -5,12 +5,14 @@
 ```bash
 sudo apt install alacritty_<x.xx.x>_amd64.deb
 ```
+> `winget install alacritty` windows
 
 ## Uninstall
 
 ```bash
 sudo apt remove alacritty
 ```
+> `winget remove alacritty` windows
 
 ## Configuration
 
