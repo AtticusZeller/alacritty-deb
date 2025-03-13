@@ -17,7 +17,10 @@ builtin_box_drawing = false
 
 [terminal]
 # `where.exe pwsh.exe`
-shell = { program = "C:\\Program Files\\PowerShell\\7\\pwsh.exe" }
+shell = { program = "C:\\Program Files\\PowerShell\\7\\pwsh.exe", args = [
+    "-WorkingDirectory",
+    "~",
+] }
 
 [keyboard]
 bindings = [
