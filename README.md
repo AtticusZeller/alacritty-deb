@@ -36,6 +36,13 @@ Restart Alacritty
 
 > Ref: https://github.com/alacritty/alacritty/issues/4692#issuecomment-855363642
 
+## Add config
+```bash
+# ubuntu
+mkdir -p ~/.config/alacritty && cd ~/.config/alacritty
+wget https://raw.githubusercontent.com/AtticusZeller/alacritty-deb/refs/heads/main/alacritty.toml -O alacritty.toml
+```
+
 ## Set default terminal
 
 ```bash
